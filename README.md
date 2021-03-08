@@ -1,2 +1,2 @@
 # Development_Code
-Sql Sample Example
+[Basic SQl Example](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
