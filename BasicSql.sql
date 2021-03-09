@@ -1,15 +1,14 @@
+--use AdventureWorks2014 database only
 
 --// DQL 
-
 -- SELECT 
-
-
 
 USE AdventureWorks2014
 GO
 
 -- SELECT ALL (*)
 SELECT P.* FROM Person.Person P
+
 SELECT D.* FROM HumanResources.Department D
 
 
@@ -23,23 +22,18 @@ SELECT DISTINCT D.Name, D.GroupName FROM HumanResources.Department D
 SELECT DISTINCT  D.GroupName, D.Name FROM HumanResources.Department D
 
 
-
 -- COLUMN LIST
 SELECT D.DepartmentID,  D.Name FROM HumanResources.Department D
-
-
 
 -- COLUMN ALIAS 
 SELECT D.DepartmentID AS 'DEPT_ID',  
 	   D.Name 
-FROM HumanResources.Department D
+	   FROM HumanResources.Department D
 
 
-SELECT  'DEPT_ID'=D.DepartmentID,  
-	   D.Name 
-FROM HumanResources.Department D
-
-
+SELECT 'DEPT_ID'=D.DepartmentID,  
+	    D.Name 
+	    FROM HumanResources.Department D
 
 SELECT 'Quest'  AS 'Result'
 
@@ -63,28 +57,19 @@ SELECT 'Quest'  FROM HumanResources.Department
 
 SELECT 2  FROM HumanResources.Department
 
-
-
-
 SELECT DepartmentID  FROM HumanResources.Department
 
-
 SELECT 'DepartmentID'  FROM HumanResources.Department
-
 
 SELECT 'DepartmentID''DepartmentID'  FROM HumanResources.Department
 
 SELECT 'DepartmentID' 'DepartmentID'  FROM HumanResources.Department
 
-
 SELECT DISTINCT 'DepartmentID'  FROM HumanResources.Department
-
 
 SELECT DISTINCT 'DepartmentID', DepartmentID  FROM HumanResources.Department
 
-
 SELECT DISTINCT 'DepartmentID', 'DepartmentID'  FROM HumanResources.Department
-
 
 SELECT DISTINCT 'DepartmentID'  'DepartmentID'  FROM HumanResources.Department
 
@@ -92,78 +77,83 @@ SELECT DISTINCT 'DepartmentID' 'DepartmentID''DepartmentID'  FROM HumanResources
 
 SELECT DISTINCT 'DepartmentID',* FROM HumanResources.Department
 
-
 SELECT DISTINCT 2+3  FROM HumanResources.Department
 
 SELECT 2+3  FROM HumanResources.Department
 
-
 SELECT 'SELECT' AS 'SELECT' 
 
+--ORDER BY-- 
 
---ORDER BY 
+SELECT EPH.* 
+	   FROM HumanResources.EmployeePayHistory EPH
+	   ORDER BY EPH.Rate ASC
 
-SELECT EPH.* FROM HumanResources.EmployeePayHistory EPH
-ORDER BY EPH.Rate ASC
-
-
-SELECT EPH.* FROM HumanResources.EmployeePayHistory EPH
-ORDER BY EPH.Rate DESC
-
-
-SELECT EPH.* FROM HumanResources.EmployeePayHistory EPH
-ORDER BY 2
+SELECT EPH.* 
+	   FROM HumanResources.EmployeePayHistory EPH
+	   ORDER BY EPH.Rate DESC
 
 
+SELECT EPH.* 
+	   FROM HumanResources.EmployeePayHistory EPH		
+       ORDER BY 2
+
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName 
+	   FROM Person.Person P
+	   ORDER BY 1 DESC 
+
+SELECT P.FirstName,
+	   P.MiddleName, 
+	   P.LastName 
+	   FROM Person.Person P
+	   ORDER BY 1 ,2,3
+
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName 
+	   FROM Person.Person P
+	   ORDER BY P.FirstName, P.MiddleName
+
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName FROM Person.Person P
+	   ORDER BY P.FirstName, P.MiddleName,P.LastName
+
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName FROM Person.Person P
+	   ORDER BY P.FirstName, P.MiddleName DESC
 
 
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY 1 DESC 
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName FROM Person.Person P
+	   ORDER BY P.FirstName DESC, P.MiddleName ASC
 
 
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY 1 ,2,3
+SELECT P.FirstName,
+       P.MiddleName ,
+	   P.LastName FROM Person.Person P
+       ORDER BY 1 DESC, 2 ASC
 
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName FROM Person.Person P
+       ORDER BY 1 DESC, 2 DESC
 
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY P.FirstName, P.MiddleName
+SELECT P.FirstName,
+	   P.MiddleName , 
+	   P.LastName FROM Person.Person P
+       ORDER BY P.BusinessEntityID DESC
 
-
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY P.FirstName, P.MiddleName,P.LastName
-
-
-
-
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY P.FirstName, P.MiddleName DESC
-
-
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY P.FirstName DESC, P.MiddleName ASC
-
-
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY 1 DESC, 2 ASC
-
-
-
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY 1 DESC, 2 DESC
-
-
-
-SELECT P.FirstName,P.MiddleName , P.LastName FROM Person.Person P
-ORDER BY P.BusinessEntityID DESC
-
-
-
---WHERE 
-SELECT * FROM HumanResources.Department WHERE DepartmentID =1
+--WHERE-- 
+SELECT * FROM HumanResources.Department 
+WHERE DepartmentID =1
 
 SELECT * FROM HumanResources.Employee 
 WHERE OrganizationLevel IS NULL 
-
 
 SELECT * FROM Person.Person
 WHERE MiddleName IS NULL
@@ -172,38 +162,30 @@ SELECT * FROM Person.Person
 WHERE MiddleName IS NOT NULL
 
 
-USE AdventureWorks2014
-GO
-
 
 SELECT EP.BusinessEntityID ,
 	   EP.Rate AS 'Rate Per Hr',
 	   EP.Rate * 9 AS 'Rate Per Day',
 	   EP.Rate * 9 * 21 AS 'Rate Per Month'
-FROM HumanResources.EmployeePayHistory EP
+       FROM HumanResources.EmployeePayHistory EP
 
 
 -- Operators 
 
 SELECT E.BusinessEntityID , 
 	   E.JobTitle
-FROM HumanResources.Employee E
+       FROM HumanResources.Employee E
 
 SELECT 'EMPID-'+CAST(E.BusinessEntityID AS VARCHAR(5))+'-'+E.JobTitle AS 'Results'
 FROM HumanResources.Employee E 
 
-
-
 SELECT P.FirstName,
 	   P.MiddleName,
 	   P.LastName
-FROM Person.Person  P
-
-
+       FROM Person.Person  P
 
 SELECT 'Name'= P.FirstName + P.MiddleName 
 FROM Person.Person  P
-
 
 SELECT 'Name'= ISNULL(P.FirstName,SPACE(1)) + ISNULL(P.MiddleName,SPACE(1)) + ISNULL(P.LastName,SPACE(1))
 FROM Person.Person  P
@@ -215,17 +197,15 @@ SELECT 'Name'=COALESCE(P.FirstName +SPACE(1) +P.MiddleName +SPACE(1) + p.LastNam
 					   P.MiddleName +SPACE(1) + P. LastName) 
 FROM Person.Person  P
 
-
--- TOP
+-- TOP--
 
 SELECT * FROM HumanResources.Employee
-
 
 SELECT TOP(10) E.BusinessEntityID , E.BirthDate , E.JobTitle FROM HumanResources.Employee E
 
 SELECT TOP(1) PERCENT E.*  FROM HumanResources.Employee E
 
--- IN , NOT IN , BETWEEN , NOT BETWEEN ,ANY , SOME , ALL
+-- IN , NOT IN , BETWEEN , NOT BETWEEN ,ANY , SOME , ALL--
 
 SELECT * FROM HumanResources.EmployeeDepartmentHistory 
 WHERE DepartmentID IN (1,2,3)
@@ -289,66 +269,53 @@ SELECT Rate FROM HumanResources.EmployeePayHistory
 WHERE Rate < ALL ( SELECT Rate FROM HumanResources.EmployeePayHistory WHERE Rate BETWEEN 50 AND 100 )
 
 
--- LIKE 
+-- LIKE-- 
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE 'kim'
+WHERE P.FirstName LIKE 'kim'              --NAME LIKE kim
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE 'kIM'
-
-
-SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE '%K'
-
-SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE 'K%'
+WHERE P.FirstName LIKE 'kIM'              --NAME LIKE kim
 
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE '%KK%'
+WHERE P.FirstName LIKE '%K'               --NAME ENDS WITH K
+
+SELECT P.FirstName FROM Person.Person P
+WHERE P.FirstName LIKE 'K%'				  --NAME STARTS WITH K
 
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE '[A-D]%'
-
-
+WHERE P.FirstName LIKE '%KK%'             --GROUPED KK WITH IN STRING
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE '[A-D]__'
-
-
+WHERE P.FirstName LIKE '[A-D]%'			  --STARTS WITH GROUPED A TO D 
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE '___[A-D]'
-
+WHERE P.FirstName LIKE '[A-D]___'		  --STARTS WITH GROUPED A TO D WITH TWO LETTERS ONLY
 
 SELECT P.FirstName FROM Person.Person P
-WHERE P.FirstName LIKE '[A-D]___[X-Z]'
+WHERE P.FirstName LIKE '___[A-D]'         --ENDS WITH GROUPED A TO D ALONG WITH TWO LETTERS ONLY
+
+SELECT P.FirstName FROM Person.Person P
+WHERE P.FirstName LIKE '[A-D]___[X-Z]'    --STARTING WITH A TO D ALONG AND END WITH X AND Z WITH TWO LETTERS ONLY
 
 SELECT * FROM Person.PersonPhone
-WHERE PhoneNumber LIKE '[987]%'
-
-
+WHERE PhoneNumber LIKE '[987]%'           --STARTING WITH 987 
 
 SELECT P.FirstName FROM Person.Person P
 WHERE SOUNDEX(P.FirstName) = SOUNDEX('Mary') 
-
 
 SELECT P.FirstName FROM Person.Person P
 WHERE SOUNDEX(P.FirstName) = SOUNDEX('Reena') 
 
 
---EXISTS
+--EXISTS--
 
 SELECT * FROM HumanResources.Department 
 WHERE EXISTS(
 	SELECT * FROM HumanResources.Department WHERE NAME LIKE '%S%'
 )
-
-
-
-
 
 SELECT * FROM HumanResources.Department 
 WHERE NOT EXISTS(
@@ -362,16 +329,14 @@ WHERE NOT EXISTS(
 --https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-ver15
 
 SELECT GETDATE() AS 'Resut'
-DECLARE @Today DATETIME = GETDATE();
+DECLARE @Today DATETIME = GETDATE();							--2021-03-10 00:07:19.273
 PRINT @Today
 
+SELECT CURRENT_TIMESTAMP  AS 'Resut'							--2021-03-10 00:07:43.540
 
+SELECT DATEFROMPARTS(2020,01,30) AS 'Resut'						--2020-01-30
 
-SELECT CURRENT_TIMESTAMP  AS 'Resut'
-
-SELECT DATEFROMPARTS(2020,01,30) AS 'Resut'
-
-SELECT DATETIMEFROMPARTS(2020,01,30,11,10,15,0) AS 'Resut'
+SELECT DATETIMEFROMPARTS(2020,01,30,11,10,15,0) AS 'Resut'		--2020-01-30 11:10:15.000
 
 SELECT DATETIME2FROMPARTS(2020,01,30,11,10,15,0,0) AS 'Resut'
 
