@@ -313,7 +313,8 @@ WHERE SOUNDEX(P.FirstName) = SOUNDEX('Reena')
 --EXISTS--
 
 SELECT * FROM HumanResources.Department 
-WHERE EXISTS(
+WHERE EXISTS
+(
 	SELECT * FROM HumanResources.Department WHERE NAME LIKE '%S%'
 )
 
@@ -338,202 +339,184 @@ SELECT DATEFROMPARTS(2020,01,30) AS 'Resut'						--2020-01-30
 
 SELECT DATETIMEFROMPARTS(2020,01,30,11,10,15,0) AS 'Resut'		--2020-01-30 11:10:15.000
 
-SELECT DATETIME2FROMPARTS(2020,01,30,11,10,15,0,0) AS 'Resut'
+SELECT DATETIME2FROMPARTS(2020,01,30,11,10,15,0,0) AS 'Resut'   --2020-01-30 11:10:15
 
-SELECT TIMEFROMPARTS(14,15,30,0,0)  AS 'Resut'
+SELECT TIMEFROMPARTS(14,15,30,0,0)  AS 'Resut'                  --14:15:30
 
+SELECT DATENAME(YEAR,GETDATE()) AS 'Resut'						--2021
 
-SELECT DATENAME(YEAR,GETDATE()) AS 'Resut'
-SELECT DATENAME(MONTH,GETDATE()) AS 'Resut'
-SELECT DATENAME(DAY,GETDATE()) AS 'Resut'
+SELECT DATENAME(MONTH,GETDATE()) AS 'Resut'						--March
 
-SELECT DATENAME(QUARTER,GETDATE()) AS 'Resut'
+SELECT DATENAME(DAY,GETDATE()) AS 'Resut'						--10
 
-SELECT DATENAME(DAYOFYEAR,GETDATE()) AS 'Resut'
+SELECT DATENAME(QUARTER,GETDATE()) AS 'Resut'					--1
 
-SELECT DATENAME(WEEK,GETDATE()) AS 'Resut'
+SELECT DATENAME(DAYOFYEAR,GETDATE()) AS 'Resut'					--69
 
-SELECT DATENAME(WEEKDAY,GETDATE()) AS 'Resut'
+SELECT DATENAME(WEEK,GETDATE()) AS 'Resut'						--11
 
-SELECT DATENAME(HOUR,GETDATE()) AS 'Resut'
+SELECT DATENAME(WEEKDAY,GETDATE()) AS 'Resut'					--Wednesday
 
-SELECT DATENAME(MINUTE,GETDATE()) AS 'Resut'
+SELECT DATENAME(HOUR,GETDATE()) AS 'Resut'                      --21
 
-SELECT DATENAME(SECOND,GETDATE()) AS 'Resut'
+SELECT DATENAME(MINUTE,GETDATE()) AS 'Resut'					--56
+												
+SELECT DATENAME(SECOND,GETDATE()) AS 'Resut'					--41varies
 
-SELECT DATEPART(SECOND,GETDATE()) AS 'Resut'
+SELECT DATEPART(SECOND,GETDATE()) AS 'Resut'					--41varies
 
-SELECT DATEPART(MONTH,GETDATE()) AS 'Resut'
-SELECT DATEPART(YEAR,GETDATE()) AS 'Resut'
+SELECT DATEPART(MONTH,GETDATE()) AS 'Resut'						--3
 
-SELECT DATEPART(YEAR,GETDATE()) AS 'Resut'
+SELECT DATEPART(YEAR,GETDATE()) AS 'Resut'						--2021
 
+SELECT DATEPART(YEAR,GETDATE()) AS 'Resut'						--2021
 
+SELECT YEAR(GETDATE()) AS 'Resut'								--2021
 
-SELECT YEAR(GETDATE()) AS 'Resut'
-SELECT MONTH(GETDATE()) AS 'Resut'
-SELECT DAY(GETDATE()) AS 'Resut'
+SELECT MONTH(GETDATE()) AS 'Resut'								--3
 
-SELECT EOMONTH(GETDATE()) AS 'Resut'
+SELECT DAY(GETDATE()) AS 'Resut'								--10
 
+SELECT EOMONTH(GETDATE()) AS 'Resut'							--Every end of Month based upon the month
 
-SELECT ISDATE('2020/01/30') AS 'Resut'
+SELECT ISDATE('2020/01/30') AS 'Resut'							--return 1 because jan 30th day
 
-SELECT ISDATE('2020/02/30') AS 'Resut'
+SELECT ISDATE('2020/02/30') AS 'Resut'							--return 0 because Feb 30th day
 
 SELECT ISDATE(NULL) AS 'Resut'
 
+SELECT DATEADD(YEAR,1,GETDATE()) AS 'Resut'						--2022-03-10 22:27:08.640
 
-SELECT DATEADD(YEAR,1,GETDATE()) AS 'Resut'
+SELECT DATEADD(YEAR,10,GETDATE()) AS 'Resut'					--2031-03-10 22:30:00.683
 
-SELECT DATEADD(YEAR,10,GETDATE()) AS 'Resut'
+SELECT DATEADD(MONTH,6,GETDATE()) AS 'Resut'					--2021-09-10 22:33:50.450
 
-SELECT DATEADD(MONTH,6,GETDATE()) AS 'Resut'
+SELECT DATEADD(DAY,10,GETDATE()) AS 'Resut'						--2021-03-20 22:34:45.660
 
-SELECT DATEADD(DAY,10,GETDATE()) AS 'Resut'
+SELECT DATEADD(DAY,-10,GETDATE()) AS 'Resut'					--2021-02-28 22:34:58.823
 
+SELECT DATEDIFF(YEAR,'2000-01-30',GETDATE()) AS 'Resut'			--21
 
-SELECT DATEADD(DAY,-10,GETDATE()) AS 'Resut'
+SELECT DATEDIFF(YEAR,'2019-12-30',GETDATE()) AS 'Resut'			--2
 
+SELECT DATEDIFF(MONTH,'2019-11-30',GETDATE()) AS 'Resut'		--16
 
-SELECT DATEDIFF(YEAR,'2000-01-30',GETDATE()) AS 'Resut'
+SELECT E.BusinessEntityID , 
+	   E.BirthDate 
+	   FROM HumanResources.Employee E
+	   WHERE MONTH(E.BirthDate)=2
 
-SELECT DATEDIFF(YEAR,'2019-12-30',GETDATE()) AS 'Resut'
+SELECT E.BusinessEntityID , 
+	   E.BirthDate 
+	   FROM HumanResources.Employee E
+	   WHERE MONTH(E.BirthDate)=1  AND  DAY(E.BirthDate)=29 
 
-SELECT DATEDIFF(MONTH,'2019-11-30',GETDATE()) AS 'Resut'
+SELECT E.BusinessEntityID , 
+	   E.BirthDate 
+	   FROM HumanResources.Employee E
+	   WHERE DATEDIFF(YEAR,E.BirthDate,GETDATE()) > 60
 
-
-
-SELECT E.BusinessEntityID , E.BirthDate FROM HumanResources.Employee E
-WHERE MONTH(E.BirthDate)=2
-
-SELECT E.BusinessEntityID , E.BirthDate FROM HumanResources.Employee E
-WHERE MONTH(E.BirthDate)=1  AND  DAY(E.BirthDate)=29 
-
-
-
-
-SELECT E.BusinessEntityID , E.BirthDate FROM HumanResources.Employee E
-WHERE DATEDIFF(YEAR,E.BirthDate,GETDATE()) > 60
-
-
-
-SELECT E.BusinessEntityID , E.BirthDate FROM HumanResources.Employee E
-WHERE DATEDIFF(YEAR,E.BirthDate,GETDATE()) < 30
+SELECT E.BusinessEntityID , 
+	   E.BirthDate FROM HumanResources.Employee E
+	   WHERE DATEDIFF(YEAR,E.BirthDate,GETDATE()) < 30
 
 
 --(1) String Functions
 --https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15
 
-SELECT ASCII('Q') AS 'Result'
+SELECT ASCII('Q') AS 'Result'										--81
 
-SELECT ASCII('Quest') AS 'Result'
+SELECT ASCII('Quest') AS 'Result'									--81
 
-SELECT CHAR(65) AS 'Result'
+SELECT CHAR(65) AS 'Result'											--A
 
-SELECT CHAR(97) AS 'Result'
+SELECT CHAR(97) AS 'Result'											--a
 
-SELECT CHAR(123) AS 'Result'
+SELECT CHAR(123) AS 'Result'										--{
 
+SELECT CHARINDEX('t','Quest') AS 'Result'							--5
 
-SELECT CHARINDEX('t','Quest') AS 'Result'
+SELECT CHARINDEX('Q','Quqest') AS 'Result'							--1
 
-SELECT CHARINDEX('Q','Quqest') AS 'Result'
+SELECT CHARINDEX('Q','Quqest',4) AS 'Result'						--0
 
+SELECT CHARINDEX('Q','Quqest',2) AS 'Result'						--3
 
-SELECT CHARINDEX('Q','Quqest',4) AS 'Result'
-
-SELECT CHARINDEX('Q','Quqest',2) AS 'Result'
-
-
-SELECT CONCAT('India','-','Bangalore') AS 'Result'
+SELECT CONCAT('India','-','Bangalore') AS 'Result'					--India-Bangalore
 
 SELECT CONCAT('India','-','Bangalore') AS 'Result'
 
+SELECT CONCAT(',', 'Bangalore','Chennai') AS 'Result'				--,BangaloreChennai
 
---SELECT CONCAT(',', 'Bangalore','Chennai') AS 'Result'
-
-
---SELECT DIFFERENCE(SOUNDEX('Ram'),SOUNDEX('Shyam'))
+SELECT DIFFERENCE(SOUNDEX('Ram'),SOUNDEX('Shyam'))					--3
 
 print SOUNDEX('Quest')
 
+SELECT FORMAT(GETDATE(),'yyyy-dd-MM') AS 'Result'					--2021-10-03
 
-SELECT FORMAT(GETDATE(),'yyyy-dd-MM') AS 'Result'
+SELECT FORMAT(GETDATE(),'yyyy-dd-MMM') AS 'Result'					--2021-10-Mar
 
-SELECT FORMAT(GETDATE(),'yyyy-dd-MMM') AS 'Result'
+SELECT FORMAT(GETDATE(),'yyyy-dd-MMMM') AS 'Result'					--2021-10-March
 
-SELECT FORMAT(GETDATE(),'yyyy-dd-MMMM') AS 'Result'
+SELECT FORMAT(500,'C') AS 'Result'									--$500.00
 
-SELECT FORMAT(500,'C') AS 'Result'
+SELECT FORMAT(500,'c') AS 'Result'									--$500.00
 
-SELECT FORMAT(500,'c') AS 'Result'
+SELECT LEFT('Quest',2) AS 'Result'									--Qu
 
+SELECT RIGHT('Quest',2) AS 'Result'									--st
 
-SELECT LEFT('Quest',2) AS 'Result'
+SELECT LEN('Quest') AS 'Result'										--5
 
-SELECT RIGHT('Quest',2) AS 'Result'
+SELECT LOWER('Quest') AS 'Result'									--quest
 
-SELECT LEN('Quest') AS 'Result'
+SELECT UPPER('Quest') AS 'Result'									--QUEST
 
-SELECT LOWER('Quest') AS 'Result'
+SELECT LTRIM('      Quest') AS 'Result'								--Quest
 
-SELECT UPPER('Quest') AS 'Result'
+SELECT RTRIM('Quest     ') AS 'Result'								--Quest
 
-SELECT LTRIM('      Quest') AS 'Result'
+SELECT NCHAR(65) AS 'Result'										--A
 
-SELECT RTRIM('Quest     ') AS 'Result'
+SELECT PATINDEX('%st%','Quest') AS 'Result'							--4
 
+SELECT  PATINDEX('%en_ure%', 'Please ensure the door is locked!') AS 'Result'--8
 
-SELECT RTRIM('Quest     ') AS 'Result'
+SELECT QUOTENAME('Employee') AS 'Result'							--[Employee]
 
-SELECT NCHAR(65) AS 'Result'
+SELECT REPLACE('Employee','E','X') AS 'Result'						--XmployXX
 
+SELECT REPLACE('968961111','1','X') AS 'Result'						--96896XXXX
 
-SELECT PATINDEX('%st%','Quest') AS 'Result'
+SELECT REPLICATE('Q',3) AS 'Result'									--QQQ
 
+SELECT REPLICATE('Quest',3) AS 'Result'								--QuestQuestQuest
 
-SELECT  PATINDEX('%en_ure%', 'Please ensure the door is locked!') AS 'Result'
+SELECT REVERSE('Quest') AS 'Result'									--tseuQ
 
-SELECT QUOTENAME('Employee') AS 'Result'  
+SELECT STR(12.36) AS 'Result'										--12
 
+SELECT STR(12.31,6,2) AS 'Result'									--12.31
 
-SELECT REPLACE('Employee','E','X') AS 'Result'  
+SELECT SUBSTRING('Quest Informatics',6,3) AS 'Result'				--In
 
-SELECT REPLACE('968961111','1','X') AS 'Result'  
+SELECT SUBSTRING('Quest Informatics',7,4) AS 'Result'				--Info
 
-SELECT REPLICATE('Q',3) AS 'Result'  
+SELECT STUFF('ABCDEFGH',0,0,'-XYZ-') AS 'Result'					--NULL
 
-SELECT REPLICATE('Quest',3) AS 'Result'  
+SELECT STUFF('ABCDEFGH',1,0,'-XYZ-') AS 'Result'					---XYZ-ABCDEFGH
 
-SELECT REVERSE('Quest') AS 'Result'  
+SELECT STUFF('ABCDEFGH',1,4,'-XYZ-') AS 'Result'					---XYZ-EFGH
 
-SELECT STR(12.36) AS 'Result'
+SELECT STUFF('ABCDEFGH',8,0,'-XYZ-') AS 'Result'					--ABCDEFG-XYZ-H
 
-SELECT STR(12.31,6,2) AS 'Result'  
+SELECT STUFF('ABCDEFGH',8,1,'-XYZ-') AS 'Result'					--ABCDEFG-XYZ-
 
-SELECT SUBSTRING('Quest Informatics',6,3) AS 'Result' 
-
-SELECT SUBSTRING('Quest Informatics',7,4) AS 'Result' 
-
-SELECT STUFF('ABCDEFGH',0,0,'-XYZ-') AS 'Result'
-
-SELECT STUFF('ABCDEFGH',1,0,'-XYZ-') AS 'Result'
-
-SELECT STUFF('ABCDEFGH',1,4,'-XYZ-') AS 'Result'
-
-SELECT STUFF('ABCDEFGH',8,0,'-XYZ-') AS 'Result'
-
-SELECT STUFF('ABCDEFGH',8,1,'-XYZ-') AS 'Result'
-
-SELECT STUFF('ABCDEFGH',9,0,'-XYZ-') AS 'Result'
+SELECT STUFF('ABCDEFGH',9,0,'-XYZ-') AS 'Result'					--NULL
 
 --SELECT STRING_SPLIT('D:\MR_files\Mphasis_MLA .NET', ' ') AS 'Result'
 
 --SELECT STRING_AGG('Quest',',') AS 'Result'
-
-
-
 
 --https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql?view=sql-server-ver15
 --https://docs.microsoft.com/en-us/sql/t-sql/functions/ranking-functions-transact-sql?view=sql-server-ver15
@@ -544,138 +527,152 @@ SELECT COUNT(*) FROM HumanResources.Department
 DECLARE @C INT=(SELECT COUNT(*) FROM HumanResources.Department);
 SELECT @C
 
-
 SELECT COUNT(D.DepartmentID) FROM HumanResources.Department D
 
-SELECT COUNT(SalesOrderDetailID) FROM Sales.SalesOrderDetail 
-WHERE SalesOrderID = 43659
-
-
+SELECT COUNT(SalesOrderDetailID) 
+	   FROM Sales.SalesOrderDetail 
+	   WHERE SalesOrderID = 43659
 
 SELECT * FROM HumanResources.EmployeePayHistory
 
-SELECT AVG(Rate * 9 * 22) FROM HumanResources.EmployeePayHistory
+SELECT AVG(Rate * 9 * 22) 
+	   FROM HumanResources.EmployeePayHistory
 
-SELECT AVG(Rate) FROM HumanResources.EmployeePayHistory
+SELECT AVG(Rate) 
+	   FROM HumanResources.EmployeePayHistory
 
-SELECT MIN(Rate) FROM HumanResources.EmployeePayHistory
+SELECT MIN(Rate) 
+	   FROM HumanResources.EmployeePayHistory
 
-SELECT MIN(Rate * 9 * 22) FROM HumanResources.EmployeePayHistory
+SELECT MIN(Rate * 9 * 22) 
+	   FROM HumanResources.EmployeePayHistory
 
+SELECT MAX(Rate) 
+	   FROM HumanResources.EmployeePayHistory
 
-SELECT MAX(Rate) FROM HumanResources.EmployeePayHistory
-SELECT MAX(Rate * 9 *22) FROM HumanResources.EmployeePayHistory
-
+SELECT MAX(Rate * 9 *22) 
+	   FROM HumanResources.EmployeePayHistory
 
 select rate from HumanResources.EmployeePayHistory
-SELECT COUNT(*) FROM HumanResources.EmployeePayHistory
-WHERE (Rate * 9 * 22) < (SELECT  AVG(Rate * 9 * 22) FROM HumanResources.EmployeePayHistory )
+
+SELECT COUNT(*) 
+	   FROM HumanResources.EmployeePayHistory
+       WHERE (Rate * 9 * 22) < (
+									SELECT  AVG(Rate * 9 * 22) 
+									FROM HumanResources.EmployeePayHistory 
+								)
 
 
-SELECT  AVG(Rate * 9 * 22),count(HREPH.BusinessEntityID) FROM HumanResources.EmployeePayHistory HREPH
-group by  HREPH.BusinessEntityID
+SELECT  AVG(Rate * 9 * 22),
+		count(HREPH.BusinessEntityID) 
+		FROM HumanResources.EmployeePayHistory HREPH
+		GROUP BY  HREPH.BusinessEntityID
 
 
 SELECT * FROM HumanResources.EmployeePayHistory
-WHERE (Rate * 9 * 22) <(SELECT  AVG(Rate * 9 * 22) FROM HumanResources.EmployeePayHistory)
-
-
+		 WHERE (Rate * 9 * 22) <(
+									SELECT  AVG(Rate * 9 * 22) 
+									FROM HumanResources.EmployeePayHistory
+								 )
 
 SELECT SUM(Rate) FROM HumanResources.EmployeePayHistory
 
+SELECT SUM(LineTotal) AS 'Totla Due' 
+	   FROM Sales.SalesOrderDetail
+	   WHERE SalesOrderID=43659
 
-SELECT SUM(LineTotal) AS 'Totla Due' FROM Sales.SalesOrderDetail
-WHERE SalesOrderID=43659
+SELECT ProductID , 
+	   OrderQty , 
+	   UnitPrice , 
+	   LineTotal  
+	   FROM Sales.SalesOrderDetail S
+	   WHERE SalesOrderID=43659
 
-SELECT ProductID , OrderQty , UnitPrice , LineTotal  FROM Sales.SalesOrderDetail S
-WHERE SalesOrderID=43659
-
-
-select * from Sales.SalesOrderHeader 
-where SalesOrderID = 43659
-
-
-
+SELECT * FROM Sales.SalesOrderHeader 
+WHERE SalesOrderID = 43659
 
 -- GROUP BY , HAVING 
 
+SELECT Gender, 
+	   MaritalStatus , 
+	   COUNT(*) 
+	   FROM HumanResources.Employee
+	   GROUP BY Gender , MaritalStatus
 
-SELECT Gender, MaritalStatus , COUNT(*) FROM HumanResources.Employee
-GROUP BY Gender , MaritalStatus
 
-
-SELECT BusinessEntityID,COUNT(*) FROM HumanResources.Employee
-GROUP BY BusinessEntityID
-
+SELECT BusinessEntityID,
+	   COUNT(*) 
+	   FROM HumanResources.Employee
+	   GROUP BY BusinessEntityID
 
 SELECT * FROM HumanResources.EmployeeDepartmentHistory
 
+SELECT EDH.DepartmentID , 
+	   COUNT(EDH.BusinessEntityID) AS 'Count OF EMP' 
+	   FROM HumanResources.EmployeeDepartmentHistory EDH
+	   GROUP BY EDH.DepartmentID
+	   HAVING COUNT(EDH.BusinessEntityID) < 10
 
-SELECT EDH.DepartmentID , COUNT(EDH.BusinessEntityID) AS 'Count OF EMP' FROM HumanResources.EmployeeDepartmentHistory EDH
-GROUP BY EDH.DepartmentID
-HAVING COUNT(EDH.BusinessEntityID) < 10
+SELECT TOP(1) EPH.BusinessEntityID , 
+	   EPH.Rate  * 9 * 22 
+	   FROM HumanResources.EmployeePayHistory EPH
+	   ORDER BY EPH.Rate  * 9 * 22 DESC
 
+SELECT  EPH.BusinessEntityID , 
+		EPH.Rate  * 9 * 22 
+		FROM HumanResources.EmployeePayHistory EPH
+		WHERE (EPH.Rate  * 9 * 22) >=( 
+										SELECT MAX(Rate  * 9 * 22) FROM HumanResources.EmployeePayHistory
+									  )
 
-
-SELECT TOP(1) EPH.BusinessEntityID , EPH.Rate  * 9 * 22 FROM HumanResources.EmployeePayHistory EPH
-ORDER BY EPH.Rate  * 9 * 22 DESC
-
-
-SELECT  EPH.BusinessEntityID , EPH.Rate  * 9 * 22 FROM HumanResources.EmployeePayHistory EPH
-WHERE (EPH.Rate  * 9 * 22) >=( SELECT MAX(Rate  * 9 * 22) FROM HumanResources.EmployeePayHistory)
-
-
-
-SELECT TOP(1)  EPH.BusinessEntityID , EPH.Rate  * 9 * 22 FROM HumanResources.EmployeePayHistory EPH
-WHERE (EPH.Rate  * 9 * 22) NOT IN ( SELECT MAX(Rate  * 9 * 22) FROM HumanResources.EmployeePayHistory)
-ORDER BY EPH.Rate  * 9 * 22 DESC
-
-
+SELECT TOP(1)  EPH.BusinessEntityID , 
+			   EPH.Rate  * 9 * 22 
+			   FROM HumanResources.EmployeePayHistory EPH
+			   WHERE (EPH.Rate  * 9 * 22) NOT IN ( 
+													SELECT MAX(Rate  * 9 * 22) 
+													FROM HumanResources.EmployeePayHistory
+												  )
+			  ORDER BY EPH.Rate  * 9 * 22 DESC
 
 SELECT BusinessEntityID,
 	   Rate*9*22 AS 'Salary',
 	   ROW_NUMBER() OVER(ORDER BY Rate*9*22 DESC) as 'RowNum'
- FROM HumanResources.EmployeePayHistory
+	   FROM HumanResources.EmployeePayHistory
 
-
- 
-
- --using temp table 
+	    --using temp table 
 SELECT BusinessEntityID,
 	   Rate*9*22 AS 'Salary',
 	   ROW_NUMBER() OVER(ORDER BY Rate*9*22 DESC) as 'RowNum' into #temp
- FROM HumanResources.EmployeePayHistory 
-GO
+	   FROM HumanResources.EmployeePayHistory 
+	   GO
 
 
  -- WTIH TVP 
 WITH TVP1 AS
 (
-SELECT BusinessEntityID,
-	   Rate*9*22 AS 'Salary',
-	   ROW_NUMBER() OVER(ORDER BY Rate*9*22 DESC) as 'RowNum' 
- FROM HumanResources.EmployeePayHistory 
- ) SELECT * FROM TVP1 
+		SELECT BusinessEntityID,
+			   Rate*9*22 AS 'Salary',
+			   ROW_NUMBER() OVER(ORDER BY Rate*9*22 DESC) as 'RowNum' 
+			   FROM HumanResources.EmployeePayHistory 
+ ) 
+ SELECT * FROM TVP1 
  WHERE RowNum =3
 
-
- -- rank
+  -- rank
 SELECT BusinessEntityID,
 	   Rate*9*22 AS 'Salary',
 	   RANK() OVER(ORDER BY Rate*9*22 ASC) as 'RANK' 
- FROM HumanResources.EmployeePayHistory 
-
+	   FROM HumanResources.EmployeePayHistory 
 
 SELECT BusinessEntityID,
 	   Rate*9*22 AS 'Salary',
 	   DENSE_RANK() OVER(ORDER BY Rate*9*22 ASC) as 'RANK' 
- FROM HumanResources.EmployeePayHistory 
-
+	   FROM HumanResources.EmployeePayHistory 
 
 SELECT BusinessEntityID,
 	   Rate*9*22 AS 'Salary',
 	   NTILE(3) OVER(ORDER BY Rate*9*22 ASC) as 'Groups' 
- FROM HumanResources.EmployeePayHistory 
+	   FROM HumanResources.EmployeePayHistory 
 
 
 USE SampleDB
@@ -683,20 +680,27 @@ GO
 
 --INNER JOIN 
 
-
-SELECT C.* , F.* FROM dbo.Table_Color C
-INNER JOIN dbo.Table_Fruits F
-ON C.Color = F.Fruit
-
-
-SELECT C.* , F.* FROM dbo.Table_Color C
-INNER JOIN dbo.Table_Fruits F
-ON C.Color = F.Fruit
+SELECT C.* , F.* 
+	   FROM dbo.Table_Color C
+	   INNER JOIN dbo.Table_Fruits F
+	   ON C.Color = F.Fruit
 
 
-SELECT E.*, A.AddresLine , A.City ,A.State, A.Country ,A.PinCode   FROM dbo.MA_Employee E
-INNER JOIN dbo.MA_Address A
-ON E.EmpID = A.EMPID
+SELECT C.* , F.* 
+	   FROM dbo.Table_Color C
+	   INNER JOIN dbo.Table_Fruits F
+	   ON C.Color = F.Fruit
+
+
+SELECT E.*, 
+	   A.AddresLine , 
+	   A.City ,
+	   A.State, 
+	   A.Country ,
+	   A.PinCode   
+	   FROM dbo.MA_Employee E
+	   INNER JOIN dbo.MA_Address A
+	   ON E.EmpID = A.EMPID
 
 SELECT DISTINCT E.BusinessEntityID ,
 	   E.Gender,
@@ -704,19 +708,23 @@ SELECT DISTINCT E.BusinessEntityID ,
 	   P.FirstName,
 	   D.Name AS 'Department',
 	   PH.Rate * 9 * 22 AS 'Salary'
-FROM AdventureWorks2014.HumanResources.Employee E
-INNER JOIN AdventureWorks2014.HumanResources.EmployeeDepartmentHistory DH
-ON E.BusinessEntityID = DH.BusinessEntityID
-INNER JOIN AdventureWorks2014.HumanResources.Department D
-ON D.DepartmentID = DH.DepartmentID
-INNER JOIN AdventureWorks2014.HumanResources.EmployeePayHistory PH
-ON E.BusinessEntityID = PH.BusinessEntityID
-INNER JOIN AdventureWorks2014.Person.Person P 
-ON P.BusinessEntityID = E.BusinessEntityID
-WHERE DH.EndDate IS NULL 
-AND PH.Rate = (SELECT TOP(1) EPH1.Rate FROM AdventureWorks2014.HumanResources.EmployeePayHistory EPH1 
-				WHERE EPH1.BusinessEntityID = E.BusinessEntityID ORDER BY EPH1.RateChangeDate DESC)
-ORDER BY E.BusinessEntityID ASC
+	   FROM AdventureWorks2014.HumanResources.Employee E
+	   INNER JOIN AdventureWorks2014.HumanResources.EmployeeDepartmentHistory DH
+       ON E.BusinessEntityID = DH.BusinessEntityID
+       INNER JOIN AdventureWorks2014.HumanResources.Department D 
+       ON D.DepartmentID = DH.DepartmentID
+       INNER JOIN AdventureWorks2014.HumanResources.EmployeePayHistory PH 
+       ON E.BusinessEntityID = PH.BusinessEntityID
+       INNER JOIN AdventureWorks2014.Person.Person P 
+       ON P.BusinessEntityID = E.BusinessEntityID
+       WHERE DH.EndDate IS NULL		
+       AND PH.Rate = (
+						SELECT TOP(1) EPH1.Rate 
+						FROM AdventureWorks2014.HumanResources.EmployeePayHistory EPH1 
+						WHERE EPH1.BusinessEntityID = E.BusinessEntityID 
+						ORDER BY EPH1.RateChangeDate DESC
+					 )
+		ORDER BY E.BusinessEntityID ASC
 
 
 
@@ -779,11 +787,13 @@ SELECT * FROM AdventureWorks2014.HumanResources.Employee E ,
 
 -- ONLY MANAGERS 
 SELECT * FROM AdventureWorks2014.HumanResources.Employee 
-WHERE BusinessEntityID IN (SELECT DISTINCT E.OrganizationLevel FROM AdventureWorks2014.HumanResources.Employee E)
-
+WHERE BusinessEntityID IN (
+								SELECT DISTINCT E.OrganizationLevel 
+								FROM AdventureWorks2014.HumanResources.Employee E
+						   )
 
 SELECT * FROM AdventureWorks2014.HumanResources.Employee
-WHERE JobTitle LIKE '%Manager%' 
+		 WHERE JobTitle LIKE '%Manager%' 
 
 
 -- ONLY EMPLOYEES WHO ARE NOT MANAGERS
@@ -792,20 +802,17 @@ WHERE JobTitle LIKE '%Manager%'
 SELECT * FROM AdventureWorks2014.HumanResources.Employee
 WHERE JobTitle NOT LIKE '%Manager%' 
 
-
-USE AdventureWorks2014
-GO
-
-
 SELECT DISTINCT E.BusinessEntityID ,
 	   E.OrganizationLevel,
 	   P.FirstName AS 'MGR_NAME'  INTO #Managers
-FROM HumanResources.Employee E 
-INNER JOIN HumanResources.Employee M
-ON E.BusinessEntityID = M.OrganizationLevel
-JOIN Person.Person P 
-ON P.BusinessEntityID = E.BusinessEntityID
-ORDER BY E.BusinessEntityID ASC
+	   FROM HumanResources.Employee E 
+	   
+	   INNER JOIN HumanResources.Employee M
+	   ON E.BusinessEntityID = M.OrganizationLevel
+	   
+	   JOIN Person.Person P 
+	   ON P.BusinessEntityID = E.BusinessEntityID
+	   ORDER BY E.BusinessEntityID ASC
 
 
 select * from #Managers
@@ -813,25 +820,25 @@ select * from #Managers
 SELECT DISTINCT E.BusinessEntityID ,
 	   E.OrganizationLevel,
 	   P.FirstName AS 'EMP_NAME' INTO #Employee
-FROM HumanResources.Employee E 
-JOIN Person.Person P 
-ON P.BusinessEntityID = E.BusinessEntityID
-WHERE E.BusinessEntityID NOT IN (SELECT DISTINCT E.OrganizationLevel FROM HumanResources.Employee )
-ORDER BY E.BusinessEntityID ASC
+	   
+	   FROM HumanResources.Employee E 
+	   JOIN Person.Person P 
+	   ON P.BusinessEntityID = E.BusinessEntityID
+	   WHERE E.BusinessEntityID NOT IN (
+											SELECT DISTINCT E.OrganizationLevel FROM HumanResources.Employee 
+										)
+	   ORDER BY E.BusinessEntityID ASC
 
 SELECT * FROM #Employee
 
 
-
-SELECT E.BusinessEntityID , E.EMP_NAME , M.MGR_NAME FROM #Employee E
-JOIN #Managers M
-ON E.OrganizationLevel = M.BusinessEntityID
-ORDER BY E.BusinessEntityID ASC
-
-
-
-
-
+SELECT E.BusinessEntityID , 
+	   E.EMP_NAME , 
+	   M.MGR_NAME 
+	   FROM #Employee E
+	   JOIN #Managers M
+	   ON E.OrganizationLevel = M.BusinessEntityID
+       ORDER BY E.BusinessEntityID ASC
 
 -- USING TVP
 
@@ -839,43 +846,45 @@ ORDER BY E.BusinessEntityID ASC
 ;WITH MGR AS
 (
 		SELECT DISTINCT E.BusinessEntityID ,
-		   E.OrganizationLevel,
-		   P.FirstName AS 'MGR_NAME'  
-		FROM HumanResources.Employee E 
-		INNER JOIN HumanResources.Employee M
-		ON E.BusinessEntityID = M.OrganizationLevel
-		JOIN Person.Person P 
-		ON P.BusinessEntityID = E.BusinessEntityID
+					    E.OrganizationLevel,
+						P.FirstName AS 'MGR_NAME'  
+		                FROM HumanResources.Employee E 
+		                INNER JOIN HumanResources.Employee M
+						ON E.BusinessEntityID = M.OrganizationLevel
+						JOIN Person.Person P 
+						ON P.BusinessEntityID = E.BusinessEntityID
 ),
 EMP AS 
 (
-	SELECT DISTINCT E.BusinessEntityID ,
-	   E.OrganizationLevel,
-	   P.FirstName AS 'EMP_NAME' 
-	FROM HumanResources.Employee E 
-	JOIN Person.Person P 
-	ON P.BusinessEntityID = E.BusinessEntityID
-	WHERE E.BusinessEntityID NOT IN (SELECT DISTINCT E.OrganizationLevel FROM HumanResources.Employee )
+		SELECT DISTINCT E.BusinessEntityID ,
+						E.OrganizationLevel,
+						P.FirstName AS 'EMP_NAME' 
+						FROM HumanResources.Employee E 
+						JOIN Person.Person P 
+						ON P.BusinessEntityID = E.BusinessEntityID
+						WHERE E.BusinessEntityID NOT IN (
+															SELECT DISTINCT E.OrganizationLevel FROM HumanResources.Employee 
+														 )
 )
-SELECT EMP.BusinessEntityID , EMP.EMP_NAME , MGR.MGR_NAME
-FROM MGR 
-JOIN EMP 
-ON EMP.OrganizationLevel = MGR.BusinessEntityID 
-ORDER BY EMP.BusinessEntityID ASC
-
-
+SELECT EMP.BusinessEntityID , 
+	   EMP.EMP_NAME , 
+	   MGR.MGR_NAME
+	   FROM MGR 
+	   JOIN EMP 
+	   ON EMP.OrganizationLevel = MGR.BusinessEntityID 
+       ORDER BY EMP.BusinessEntityID ASC
 
 SELECT E.BusinessEntityID AS 'EMP_ID',
 	   PE.FirstName AS 'EMP_NAME',
 	   PM.FirstName AS 'MGR_NAME'
-FROM HumanResources.Employee E 
-JOIN HumanResources.Employee M 
-ON E.OrganizationLevel = M.BusinessEntityID
-JOIN Person.Person PE
-ON E.BusinessEntityID = PE.BusinessEntityID 
-JOIN Person.Person PM 
-ON M.BusinessEntityID = PM.BusinessEntityID
-ORDER BY E.BusinessEntityID ASC
+	   FROM HumanResources.Employee E 
+       JOIN HumanResources.Employee M 
+       ON E.OrganizationLevel = M.BusinessEntityID
+       JOIN Person.Person PE
+       ON E.BusinessEntityID = PE.BusinessEntityID 
+       JOIN Person.Person PM 
+	   ON M.BusinessEntityID = PM.BusinessEntityID
+	   ORDER BY E.BusinessEntityID ASC
 
 
 
@@ -883,13 +892,13 @@ SELECT E.BusinessEntityID AS 'EMP_ID',
 	   PE.FirstName AS 'EMP_NAME',
 	   PM.FirstName AS 'MGR_NAME'
 	   --D.Name AS 'DEPT'
-FROM HumanResources.Employee E 
-JOIN HumanResources.Employee M 
-ON E.OrganizationLevel = M.BusinessEntityID
-JOIN Person.Person PE
-ON E.BusinessEntityID = PE.BusinessEntityID 
-JOIN Person.Person PM 
-ON M.BusinessEntityID = PM.BusinessEntityID
+	   FROM HumanResources.Employee E 
+	   JOIN HumanResources.Employee M 
+	   ON E.OrganizationLevel = M.BusinessEntityID
+	   JOIN Person.Person PE
+       ON E.BusinessEntityID = PE.BusinessEntityID 
+	   JOIN Person.Person PM 
+	   ON M.BusinessEntityID = PM.BusinessEntityID
 --JOIN HumanResources.EmployeeDepartmentHistory DH 
 --ON DH.BusinessEntityID = M.OrganizationLevel
 --JOIN HumanResources.Department D
@@ -902,24 +911,35 @@ ORDER BY E.BusinessEntityID ASC
 
 
 SELECT * FROM HumanResources.Employee E
-WHERE E.BirthDate = (SELECT BirthDate FROM HumanResources.Employee WHERE BusinessEntityID =1)
+WHERE E.BirthDate = (
+						SELECT BirthDate 
+						FROM HumanResources.Employee 
+						WHERE BusinessEntityID =1
+					)
 
 SELECT * FROM HumanResources.Employee E
-WHERE E.BirthDate = (SELECT BirthDate FROM HumanResources.Employee WHERE BusinessEntityID =1)
+WHERE E.BirthDate = (
+						SELECT BirthDate 
+						FROM HumanResources.Employee 
+						WHERE BusinessEntityID =1
+					)
+
+SELECT * FROM HumanResources.Employee E
+WHERE EXISTS(
+				SELECT * FROM HumanResources.Employee 
+				WHERE BusinessEntityID =1
+			 )
 
 
 SELECT * FROM HumanResources.Employee E
-WHERE EXISTS(SELECT * FROM HumanResources.Employee WHERE BusinessEntityID =1)
-
-
-SELECT * FROM HumanResources.Employee E
-WHERE NOT EXISTS(SELECT * FROM HumanResources.Employee WHERE BusinessEntityID =0)
-
+WHERE NOT EXISTS(
+				  SELECT * FROM HumanResources.Employee 
+				  WHERE BusinessEntityID =0
+				 )
 
 SELECT * FROM  SampleDB.dbo.Table_Color
 UNION
 SELECT * FROM  SampleDB.dbo.Table_Fruits
-
 
 SELECT * FROM  SampleDB.dbo.Table_Color
 INTERSECT
@@ -1004,7 +1024,6 @@ GO
 EXEC sp_help [crms.Ma_City]  
 
 SELECT * FROM [crms].[Ma_City] 
-
 
 CREATE TABLE [crms].[Ma_Vehicles]  
 (
@@ -1120,17 +1139,12 @@ ON E.BusinessEntityID = P.BusinessEntityID
 JOIN Person.Person PP
 ON E.BusinessEntityID = PP.BusinessEntityID
 
-
-
 -- Update , Delete , Truncate 
 
 select * from dbo.Department_2
 select * from dbo.Department_3
 
-
 select * into Department_2 from dbo.Department_3
-
-
 
 UPDATE dbo.Department_2 
 SET Name = 'pqr'
@@ -1152,11 +1166,8 @@ FROM
 	JOIN dbo.Department_2 D2
     ON D2.DepartmentID = D3.DepartmentID
 
-
-
 select * from dbo.Department_2
 select * from dbo.Department_3
-
 
 -- TRUCNCATE
 
@@ -1170,18 +1181,16 @@ DELETE FROM dbo.Department_3
 -- delete all rec and reset identity to default
 truncate table dbo.Department_2
 
-
-
 select * from dbo.Department_2
+
 select * from dbo.Department_3
 
 -- delete with join 
 
-DELETE 
-	D2
-FROM dbo.Department_2 D2
-JOIN dbo.Department_3  D3
-ON D2.DepartmentID = D3.DepartmentID
+DELETE D2
+       FROM dbo.Department_2 D2
+	   JOIN dbo.Department_3  D3
+	   ON D2.DepartmentID = D3.DepartmentID
 
 
 --3. OPENROWSET
@@ -1202,56 +1211,52 @@ SELECT *  , 'test.docx',* , 'test.docx' FROM OPENROWSET(BULK 'C:\Users\Qipl143\D
 SELECT * FROM HumanResources.Department
 FOR XML AUTO
 
-
 SELECT * FROM HumanResources.Department
 FOR XML AUTO,ELEMENTS,ROOT
 
-
-
 SELECT * FROM HumanResources.Department
 FOR XML RAW('row'), ELEMENTS,ROOT 
-
 
 --OPENXML 
 DECLARE @XML_DOC VARCHAR(MAX);
 DECLARE @Doc_Pointer INT;
 SET @XML_DOC ='<root>
-		  <row>
-			<DepartmentID>17</DepartmentID>
-			<Name>FSP</Name>
-			<GroupName>SD</GroupName>
-			<ModifiedDate>2020-02-17</ModifiedDate>
-		  </row>
-			<row>
-				<DepartmentID>18</DepartmentID>
-				<Name>SD</Name>
-				<GroupName>SD</GroupName>
-				<ModifiedDate>2020-02-17</ModifiedDate>
-			</row>
-			<row>
-				<DepartmentID>19</DepartmentID>
-				<Name>QA</Name>
-				<GroupName>Testing</GroupName>
-				<ModifiedDate>2020-02-17</ModifiedDate>
-			</row>
-			<row>
-				<DepartmentID>20</DepartmentID>
-				<Name>QC</Name>
-				<GroupName>Testing</GroupName>
-				<ModifiedDate>2020-02-17</ModifiedDate>
-			</row>
-			<row>
+				  <row>
+					<DepartmentID>17</DepartmentID>
+					<Name>FSP</Name>
+					<GroupName>SD</GroupName>
+					<ModifiedDate>2020-02-17</ModifiedDate>
+				 </row>
+				 <row>
+				   <DepartmentID>18</DepartmentID>
+				   <Name>SD</Name>
+				   <GroupName>SD</GroupName>
+				   <ModifiedDate>2020-02-17</ModifiedDate>
+			    </row>
+			    <row>
+				  <DepartmentID>19</DepartmentID>
+				  <Name>QA</Name>
+				  <GroupName>Testing</GroupName>
+				  <ModifiedDate>2020-02-17</ModifiedDate>
+			   </row>
+			   <row>
+				 <DepartmentID>20</DepartmentID>
+				 <Name>QC</Name>
+				 <GroupName>Testing</GroupName>
+				 <ModifiedDate>2020-02-17</ModifiedDate>
+			  </row>
+			  <row>
 				<DepartmentID>21</DepartmentID>
 				<Name>CS</Name>
 				<GroupName>CS</GroupName>
 				<ModifiedDate>2020-02-17</ModifiedDate>
-			</row>
-		</root>' 
-EXEC sp_xml_preparedocument  @Doc_Pointer OUTPUT , @XML_DOC
-SELECT * FROM OPENXML(@Doc_Pointer,'/root/row',2) 
-WITH (DepartmentID INT , Name VARCHAR(50) , GroupName VARCHAR(50), ModifiedDate DATE)
-EXEC sp_xml_removedocument  @Doc_Pointer 
-GO
+			 </row>
+		 </root>' 
+	EXEC sp_xml_preparedocument  @Doc_Pointer OUTPUT , @XML_DOC
+	SELECT * FROM OPENXML(@Doc_Pointer,'/root/row',2) 
+	WITH (DepartmentID INT , Name VARCHAR(50) , GroupName VARCHAR(50), ModifiedDate DATE)
+	EXEC sp_xml_removedocument  @Doc_Pointer 
+	GO
 
 
 -- select and insert
