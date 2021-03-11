@@ -96,7 +96,7 @@ SELECT EPH.*
 
 SELECT EPH.* 
 	   FROM HumanResources.EmployeePayHistory EPH		
-       ORDER BY 2
+           ORDER BY 2
 
 SELECT P.FirstName,
 	   P.MiddleName , 
@@ -135,18 +135,18 @@ SELECT P.FirstName,
 
 SELECT P.FirstName,
        P.MiddleName ,
-	   P.LastName FROM Person.Person P
+       P.LastName FROM Person.Person P
        ORDER BY 1 DESC, 2 ASC
 
 SELECT P.FirstName,
 	   P.MiddleName , 
 	   P.LastName FROM Person.Person P
-       ORDER BY 1 DESC, 2 DESC
+           ORDER BY 1 DESC, 2 DESC
 
 SELECT P.FirstName,
 	   P.MiddleName , 
 	   P.LastName FROM Person.Person P
-       ORDER BY P.BusinessEntityID DESC
+           ORDER BY P.BusinessEntityID DESC
 
 --WHERE-- 
 SELECT * FROM HumanResources.Department 
@@ -167,13 +167,13 @@ SELECT EP.BusinessEntityID ,
 	   EP.Rate AS 'Rate Per Hr',
 	   EP.Rate * 9 AS 'Rate Per Day',
 	   EP.Rate * 9 * 21 AS 'Rate Per Month'
-       FROM HumanResources.EmployeePayHistory EP
+           FROM HumanResources.EmployeePayHistory EP
 
 
 -- Operators 
 
 SELECT E.BusinessEntityID , 
-	   E.JobTitle
+       E.JobTitle
        FROM HumanResources.Employee E
 
 SELECT 'EMPID-'+CAST(E.BusinessEntityID AS VARCHAR(5))+'-'+E.JobTitle AS 'Results'
@@ -182,7 +182,7 @@ FROM HumanResources.Employee E
 SELECT P.FirstName,
 	   P.MiddleName,
 	   P.LastName
-       FROM Person.Person  P
+           FROM Person.Person  P
 
 SELECT 'Name'= P.FirstName + P.MiddleName 
 FROM Person.Person  P
