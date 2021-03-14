@@ -2,7 +2,7 @@
 ### Sql Code
 [Distinct](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select.sql)
 
-[Column Alias](https://github.com/TechCodeDev/Development_Code/blob/main/ColumnAlias.sql)
+[Column Alias](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/ColumnAlias.sql)
 
 [Basic SQl Example](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 
