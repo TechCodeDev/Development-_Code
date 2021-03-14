@@ -19,7 +19,7 @@
 [Create Table](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Create%20Tables.sql)<br/>
 [Select & Insert](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select%20%26%20Insert.sql)<br/>
 [Update,Delete,Truncate](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Update%20%2C%20Delete%20%2C%20Truncate%20.sql)<br/>
-
+[Alter](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Alter.sql)<br/>
 
 [Basic SQl Example](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)<br/>
 
