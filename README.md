@@ -14,7 +14,8 @@
 [String Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/String%20Functions.sql)<br/>
 [Aggregate Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Aggregate.sql)<br/>
 [Ranking Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Ranking%20Functions%20.sql)<br/>
-
+[Create Table](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Create%20Tables.sql)<br/>
+[Select & Insert](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select%20%26%20Insert.sql)<br/>
 
 [Basic SQl Example](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)<br/>
 
