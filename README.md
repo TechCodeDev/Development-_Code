@@ -11,6 +11,9 @@
 [Like](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Like.sql)<br/>
 [Exits](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Exists.sql)<br/>
 [Date Time Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/DateAndTimeFunction.sql)<br/>
+[String Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/String%20Functions.sql)
+[Aggregate Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Aggregate.sql)
+
 
 [Basic SQl Example](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)<br/>
 
