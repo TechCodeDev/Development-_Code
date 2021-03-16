@@ -20,7 +20,7 @@
 [Select & Insert](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select%20%26%20Insert.sql)<br/>
 [Update,Delete,Truncate](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Update%20%2C%20Delete%20%2C%20Truncate%20.sql)<br/>
 [Alter](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Alter.sql)<br/>
-[System Stored Procedures](https://github.com/Gouthami0509/Development_Code/blob/main/Sql/PabitroSir-SystemStoredProcedures.sql)<br/>
+[System Stored Procedures](https://github.com/Gouthami0509/Development_Code/blob/main/Sql/SystemStoredProcedures.sql)<br/>
 
 
 [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)<br/>
