@@ -27,5 +27,6 @@
 
 		exec sys.sp_helpfilegroup
 
---5)
+--5)To get infromation about object/database ,
+ 
 
