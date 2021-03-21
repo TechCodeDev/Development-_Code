@@ -1369,3 +1369,18 @@ ALTER TABLE MA_Country WITH CHECK
 ADD CONSTRAINT UQ_MA_Country_Name UNIQUE(Name)
 GO
 
+--CREATE TABLE FROM OTHER TABLE IN SIMPLE WAY
+SELECT * INTO HumanResources.Employee_1 
+from HumanResources.Employee
+WHERE 1=2
+
+DROP TABLE HumanResources.Employee_1
+
+--INSERT FROM ONE TABLE TO OTHER 
+INSERT INTO HumanResources.Employee_1
+SELECT * FROM HumanResources.Employee
+
+--DELETE ALL THE DATA FROM TABLE
+TRUNCATE TABLE HumanResources.Employee_1
+
+
