@@ -20,6 +20,7 @@
 * [Select & Insert](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select%20%26%20Insert.sql)
 * [Update,Delete,Truncate](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Update%20%2C%20Delete%20%2C%20Truncate%20.sql)
 * [Alter](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Alter.sql)
+* [Mathematical Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/MathFunctions.sql)
 * [System Stored Procedures](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SystemStoredProcedures.sql)
 
 
