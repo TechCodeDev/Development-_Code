@@ -24,3 +24,7 @@
 
 
 * [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
+
+
+
+### C# Core
