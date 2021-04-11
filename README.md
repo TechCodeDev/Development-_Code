@@ -29,3 +29,4 @@
 
 
 ### C# Core
+* [Enums](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/Enums/Program.cs)
