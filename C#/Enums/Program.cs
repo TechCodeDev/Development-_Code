@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Enums.Enums;
-using Enums.Model;
-//using Enums.Enums;
+using Enums.Enums;      //Enum Define Here
+using Enums.Model;      //Property Defined Here
+
 namespace Enums
 {
     class Program
