@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Punith\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Punith\\.nuget\\packages"
+    ]
+  }
+}
