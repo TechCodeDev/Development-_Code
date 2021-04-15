@@ -23,10 +23,10 @@
 - [Alter](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Alter.sql)
 - [Mathematical Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/MathFunctions.sql)
 - [System Stored Procedures](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SystemStoredProcedures.sql)
-- [Triggers]
-  - [DDL Triggers]
-  - [DML Triggers]
-  - [LOGON TRIGGER]
+- [Triggers]()
+  - [DDL Triggers]()
+  - [DML Triggers]()
+  - [LOGON TRIGGER]()
 
 - [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 
