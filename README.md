@@ -24,7 +24,7 @@
 - [Mathematical Functions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/MathFunctions.sql)
 - [System Stored Procedures](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SystemStoredProcedures.sql)
 - [Triggers]()
-  - [DDL Triggers]()
+  - [DDL Triggers](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/DMLTriggers.sql)
   - [DML Triggers]()
   - [LOGON Triggers]()
 
