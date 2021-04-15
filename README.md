@@ -1,5 +1,5 @@
 ### Development Code
-### 1) Sql Code
+### 1) Sql Server
 ---
 - [Distinct](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select.sql)
 - [Column Alias](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/ColumnAlias.sql)
