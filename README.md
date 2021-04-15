@@ -1,5 +1,4 @@
 ### Development Code
----
 ### Sql Code
 ---
 - [Distinct](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select.sql)
@@ -27,6 +26,7 @@
 - [Triggers]()
 
 - [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
----
+
 ### C# Core
+---
 - [Enums](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/Enums/Program.cs)
