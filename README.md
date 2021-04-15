@@ -26,7 +26,7 @@
 - [Triggers]()
   - [DDL Triggers]()
   - [DML Triggers]()
-  - [LOGON TRIGGER]()
+  - [LOGON Triggers]()
 
 - [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 
