@@ -1,5 +1,7 @@
-# Development Code
+### Development Code
+---
 ### Sql Code
+---
 - [Distinct](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select.sql)
 - [Column Alias](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/ColumnAlias.sql)
 - [Order By](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/OrderBy.sql)
@@ -24,11 +26,7 @@
 - [System Stored Procedures](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SystemStoredProcedures.sql)
 - [Triggers]()
 
-
-
 - [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
-
-
-
+---
 ### C# Core
 - [Enums](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/Enums/Program.cs)
