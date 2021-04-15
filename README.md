@@ -1,5 +1,5 @@
 ### Development Code
-### Sql Code
+### 1) Sql Code
 ---
 - [Distinct](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Select.sql)
 - [Column Alias](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/ColumnAlias.sql)
@@ -27,6 +27,6 @@
 
 - [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 
-### C# Core
+### 2) C# Core
 ---
 - [Enums](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/Enums/Program.cs)
