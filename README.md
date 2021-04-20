@@ -28,7 +28,8 @@
   - [DML Triggers](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/DMLTriggers.sql)
   - [LOGON Triggers]()
 
-- [Basic SQl (All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
+- [Basic SQl_1(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
+- [Basic SQl_2(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 
 ### 2) C# Core
 ---
