@@ -1,92 +1,103 @@
 
 --1) List five employees in highest order of salary
 
-select  top(5) eph.EmployeeID,eph.Rate
-from HumanResources.EmployeePayHistory eph
-order by Rate desc
+	select  top(5) eph.EmployeeID,
+			eph.Rate
+			from HumanResources.EmployeePayHistory eph
+			order by Rate desc
 
 --2) List the emp details whose salary is greater than the lowest salary of an emloyee belonging to dept=1 
 --'Salary'= MIN(eph.Rate) or top(1) can also be used
 
-select  eph.EmployeeID , eph.Rate , ROW_NUMBER() over(order by eph.Rate asc) as [rnk]
-from HumanResources.EmployeePayHistory eph
-where eph.EmployeeID 
-in 
+	select  eph.EmployeeID , 
+		eph.Rate , 
+		ROW_NUMBER() over(order by eph.Rate asc) as [rnk]
+		from HumanResources.EmployeePayHistory eph
+		where eph.EmployeeID 
+		in 
 		(
 				select edh.EmployeeID 
 				from HumanResources.EmployeeDepartmentHistory edh 
 				where edh.DepartmentID=1
 		)
-order by eph.Rate asc
+		order by eph.Rate asc
 
 
-with CTE as
-(
-select  eph.EmployeeID , eph.Rate , ROW_NUMBER() over(order by eph.Rate asc) as [rnk]
-from HumanResources.EmployeePayHistory eph
-where eph.EmployeeID 
-in 
-		(
+	with CTE as
+	(
+		select  eph.EmployeeID , 
+			eph.Rate , 
+			ROW_NUMBER() over(order by eph.Rate asc) as [rnk]
+			from HumanResources.EmployeePayHistory eph
+			where eph.EmployeeID 
+			in 
+			(
 				select edh.EmployeeID 
 				from HumanResources.EmployeeDepartmentHistory edh 
 				where edh.DepartmentID=1
-		)
-)
-select * from CTE where [rnk]=2
+			)
+	)
+	select * from CTE where [rnk]=2
 
---Answer
-select  eph.EmployeeID , eph.Rate
-from HumanResources.EmployeePayHistory eph
-where eph.EmployeeID 
-in 
+--Answer--
+	select  eph.EmployeeID , 
+		eph.Rate
+		from HumanResources.EmployeePayHistory eph
+		where eph.EmployeeID 
+		in 
 		(
 				select edh.EmployeeID 
 				from HumanResources.EmployeeDepartmentHistory edh 
 				where edh.DepartmentID=1
 		)
-AND eph.Rate >
-(
-select  min( eph.Rate)
-from HumanResources.EmployeePayHistory eph
-where eph.EmployeeID 
- in 
-		(
-				select edh.EmployeeID 
-				from HumanResources.EmployeeDepartmentHistory edh 
-				where edh.DepartmentID=1
-		)
-)
+		AND eph.Rate >
+			(
+				select  min( eph.Rate)
+				from HumanResources.EmployeePayHistory eph
+				where eph.EmployeeID 
+ 				in 
+				(
+					select edh.EmployeeID 
+					from HumanResources.EmployeeDepartmentHistory edh 
+					where edh.DepartmentID=1
+				)
+			)
 
 --3) list the employee details if and only if more than 10 employees are there in that department
 
-select  edh.DepartmentID , COUNT(edh.EmployeeID) as 'EmpCount' 
-from HumanResources.EmployeeDepartmentHistory edh
-where edh.DepartmentID 
-in
-(
-	select d.DepartmentID from HumanResources.Department d
-)
-group by edh.DepartmentID
-having COUNT(edh.EmployeeID) >10
+	select  edh.DepartmentID , 
+		COUNT(edh.EmployeeID) as 'EmpCount' 
+		from HumanResources.EmployeeDepartmentHistory edh
+		where edh.DepartmentID 
+		in
+		(
+			select d.DepartmentID from HumanResources.Department d
+		)
+		group by edh.DepartmentID
+		having COUNT(edh.EmployeeID) >10
 
 
 --4) list out all the jobs unique to departments
 
-select distinct  e.Title , edh.DepartmentID , d.Name,d.GroupName  from HumanResources.Employee e 
-join HumanResources.EmployeeDepartmentHistory edh
-on e.EmployeeID=edh.EmployeeID
-join HumanResources.Department d
-on edh.DepartmentID=d.DepartmentID
-where e.EmployeeID
-in
-(
-select edh.EmployeeID from HumanResources.EmployeeDepartmentHistory edh
-where DepartmentID in (1,3,5,7,9,11,13,15)
-except
-select edh.EmployeeID from HumanResources.EmployeeDepartmentHistory edh
-where DepartmentID in (2,4,6,8,10,12,14)
-)
-order by edh.DepartmentID
+	select distinct  e.Title , 
+		edh.DepartmentID , 
+		d.Name,
+		d.GroupName  
+		from HumanResources.Employee e 
+		join HumanResources.EmployeeDepartmentHistory edh
+		on e.EmployeeID=edh.EmployeeID
+		join HumanResources.Department d
+		on edh.DepartmentID=d.DepartmentID
+		where e.EmployeeID
+		in
+		(
+			select edh.EmployeeID from HumanResources.EmployeeDepartmentHistory edh
+			where DepartmentID in (1,3,5,7,9,11,13,15)
+			except
+			select edh.EmployeeID from HumanResources.EmployeeDepartmentHistory edh
+			where DepartmentID in (2,4,6,8,10,12,14)
+		)
+		order by edh.DepartmentID
 
 --5) list the jobs common to dept 10 and 15
 
