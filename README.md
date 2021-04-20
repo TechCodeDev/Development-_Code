@@ -29,7 +29,7 @@
   - [LOGON Triggers]()
 
 - [Basic SQl_1(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
-- [Basic SQl_2(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
+- [Basic SQl_2(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SqlStage2.sql)
 
 ### 2) C# Core
 ---
