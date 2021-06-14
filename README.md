@@ -30,9 +30,10 @@
 
 - [Basic SQl_1(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 - [Basic SQl_2(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SqlStage2.sql)
-- 
+
 - [Basic_Practice Questions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Basic_Practices_Question.sql)
 - [Join_Practice Questions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Join_Practices_Question.sql)
+- [Functions Practice Questions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Functions_Practices_Questions.sql)
 - [Store Procedures_Practice Questions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/Store_Procedure_Practices_Question.sql)
 - [60 Practice Questions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/60_Practice_Question.sql)
 
