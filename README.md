@@ -31,6 +31,7 @@
 - [Basic SQl_1(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/BasicSql.sql)
 - [Basic SQl_2(All In One)](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/SqlStage2.sql)
 - [60 Practice Questions](https://github.com/TechCodeDev/Development_Code/blob/main/Sql/60_Practice_Question.sql)
+- [Join_Practice Questions]()
 
 ### 2) C# Core
 ---
