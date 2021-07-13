@@ -81,4 +81,86 @@ WITH (Name VARCHAR(50) , GroupName VARCHAR(50), ModifiedDate DATE)
 EXEC sp_xml_removedocument  @Doc_Pointer 
 GO
 
-select * from HumanResources.Department
+------------------------------------- INSERT ----------------------------------
+
+drop  PROCEDURE [dbo].InsertEmployee
+CREATE PROCEDURE [dbo].InsertEmployee(	
+	@XmlDocument nvarchar(max) )
+	AS
+BEGIN
+DECLARE @DepartmentID int 
+	SET NOCOUNT ON		
+		BEGIN
+			EXEC sp_xml_preparedocument @DepartmentID OUTPUT,@XmlDocument
+			INSERT INTO [dbo].Department (Name,GroupName)
+			SELECT  *
+			FROM OPENXML(@DepartmentID,'/Root/Department',1)
+			WITH	(	Name varchar(50),
+						GroupName varchar(50)
+					)
+		    EXEC sp_xml_removedocument @DepartmentID 		
+		END
+END
+
+
+select * from [dbo].Department
+
+
+
+------------------------------------- Update ----------------------------------
+drop PROCEDURE [dbo].UpdateEmployee
+
+CREATE PROCEDURE [dbo].UpdateEmployee(   
+	@XmlDocument nvarchar(max) )
+	AS
+BEGIN
+DECLARE @DepartmentIDDs int 
+	SET NOCOUNT ON		
+		BEGIN
+			EXEC sp_xml_preparedocument @DepartmentIDDs OUTPUT,@XmlDocument
+			Update [dbo].Department
+			SET
+			    Department.Name=XMLDepartment.Name,
+			    Department.GroupName=XMLDepartment.GroupName			
+			FROM OPENXML(@DepartmentIDDs,'/Root/Department')
+			WITH	(	
+			            DepartmentID  INT,        
+			            Name varchar(50),
+						GroupName varchar(50)
+					) XMLDepartment
+			where Department.DepartmentID=XMLDepartment.DepartmentID		 	
+		END
+END
+
+
+select * from [dbo].Department
+
+---------------------------------------------------------
+
+
+------------------------------------- Delete ----------------------------------
+drop PROCEDURE [dbo].DeleteEmployee
+
+CREATE PROCEDURE [dbo].DeleteEmployee(   
+	@XmlDocument nvarchar(max) )
+	AS
+BEGIN
+DECLARE @DepartmentIDDs int 
+	SET NOCOUNT ON		
+		BEGIN
+			EXEC sp_xml_preparedocument @DepartmentIDDs OUTPUT,@XmlDocument
+			Delete [dbo].Department						
+			FROM OPENXML(@DepartmentIDDs,'/Root/Department')
+			WITH	(	
+			            DepartmentID  INT       
+			           
+					) XMLDepartment
+			where Department.DepartmentID=XMLDepartment.DepartmentID		 	
+		END
+END
+
+
+select * from [dbo].Department
+
+---------------------------------------------------------
+
