@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "zqPwZeOaQkmfL+Jgc9au1CO98dyc0eJX/Nf3arhA9SEbsx7uhiLsQw5WopCZ21pPZDPiRk2W/3sDkSA4u6o04w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\puneeth.n\\source\\repos\\IntroductionToCsharp\\IntroductionToCsharp\\IntroductionToCsharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\puneeth.n\\.nuget\\packages\\microsoft.netcore.app\\2.0.0\\microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "C:\\Users\\puneeth.n\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.0.0\\microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "C:\\Users\\puneeth.n\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.0.0\\microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "C:\\Users\\puneeth.n\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.0.0\\microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "C:\\Users\\puneeth.n\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\puneeth.n\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

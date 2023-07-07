@@ -1,0 +1,11 @@
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\bin\Debug\netcoreapp2.0\IntroductionToCsharp.deps.json
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\bin\Debug\netcoreapp2.0\IntroductionToCsharp.runtimeconfig.json
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\bin\Debug\netcoreapp2.0\IntroductionToCsharp.runtimeconfig.dev.json
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\bin\Debug\netcoreapp2.0\IntroductionToCsharp.dll
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\bin\Debug\netcoreapp2.0\IntroductionToCsharp.pdb
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\obj\Debug\netcoreapp2.0\IntroductionToCsharp.csproj.AssemblyReference.cache
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\obj\Debug\netcoreapp2.0\IntroductionToCsharp.csproj.CoreCompileInputs.cache
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\obj\Debug\netcoreapp2.0\IntroductionToCsharp.AssemblyInfoInputs.cache
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\obj\Debug\netcoreapp2.0\IntroductionToCsharp.AssemblyInfo.cs
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\obj\Debug\netcoreapp2.0\IntroductionToCsharp.dll
+C:\Users\puneeth.n\source\repos\IntroductionToCsharp\IntroductionToCsharp\obj\Debug\netcoreapp2.0\IntroductionToCsharp.pdb
