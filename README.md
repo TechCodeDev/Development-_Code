@@ -40,3 +40,5 @@
 ### 2) C# Core
 ---
 - [Enums](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/Enums/Program.cs)
+- [Basic Example](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/IntroductionToCsharp/Example/IntroductionToCsharp/IntroductionToCsharp/Program.cs) 
+  ([Read](https://github.com/TechCodeDev/Development_Code/blob/main/C%23/IntroductionToCsharp/Document/IntroductionToCsharp.pdf))
